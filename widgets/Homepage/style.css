@@ -1,0 +1,57 @@
+/**
+* Homepage Widget
+*
+* @author Michael Ochmann (INF | INF - SMS)
+*/
+hr {
+      display: none;
+}
+
+#Homepage ul {
+      list-style: none;
+      padding: 15px;
+}
+
+#Homepage ul li {
+      margin-bottom: 50px;
+      color:  rgba(255,255,255,0.6);
+      position: relative;
+      padding-right: 120px;
+      line-height: 2.5em;
+}
+#Homepage ul li h2 { font-weight: normal; margin-bottom: 12px; padding: 12px; }
+#Homepage ul li h2 a { color: white; }
+
+#Homepage img {
+           max-width: 300px;
+           max-height: 300px;
+           border: solid 6px white;
+           box-shadow: 0 0 8px rgba(0,0,0,0.4), 0 0 1px black inset;
+}
+
+.news-list-date {
+      float: right;
+      color: #414141;
+      margin-right: 12px;
+      display: none;
+}
+
+.news-list-morelink {
+      display: none;
+}
+
+.HomepageNewsPostDatum {
+      float: right;
+      font-size: 4em;
+      position: absolute;
+      top: 0;
+      right: 15px;
+      text-align: center;
+      line-height: normal;
+      color: white;
+}
+.HomepageNewsPostDatum sup {
+      font-size: small;
+      display: block;
+      text-align: center;
+}

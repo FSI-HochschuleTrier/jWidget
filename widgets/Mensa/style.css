@@ -1,0 +1,37 @@
+/**
+* Mensa Widget
+*
+* @author Michael Ochmann (INF | INF - SMS)
+*/
+.MensaTableView {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      background: transparent;
+      color: #B7B7B7;
+      padding-top: 50px;
+}
+.MensaTableView li {
+      padding: 15px;
+      background: repeat-x url(data:image/gif;base64,R0lGODlhAQACAPABAMjHzP///yH/C1hNUCBEYXRhWE1QAz94cAAh+QQFAAABACwAAAAAAQACAAACAgwKADs=);
+      background-position: left 60px bottom;
+      background-size: 100% 1px;
+}
+
+.menu-inhalt-zeile-text { vertical-align: bottom; }
+
+.MensaTableView li b { color: white; }
+
+.MensaTableView li sup {
+      color: #c7c7c7;
+      font-size: xx-small;
+}
+
+.MensaTableView li.MensaGroupHeader {
+      background: rgba(255,255,255,0.1);
+      padding-top: 15px;
+      color: #3C3C3C;
+      font-size: large;
+      font-weight: lighter;
+}
+.MensaTableView li.groupHeader sup { color: #9F9F9F; font-size: x-small; font-style: italic; margin-top: -3px; padding-left: 8px; display: block;}

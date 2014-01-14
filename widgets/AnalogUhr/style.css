@@ -1,0 +1,30 @@
+.digit {
+      font-size: 6em;
+      font-weight: normal;
+      padding: 12px;
+      margin: 0px auto;
+      display: block;
+      text-align: center;
+}
+
+.date {
+      display: block;
+      padding-left: 35px;
+}
+
+.weather {
+      padding: 12px;
+      font-size: 2em;
+}
+.weather img { vertical-align: middle; margin-right: 15px; }
+
+.AnalogUhrLogo {
+      position: absolute;
+      bottom: 0;
+      right: 0px;
+      margin: 0 25px 25px 0;
+}
+
+#AnalogUhr {
+      text-align: center;
+}
