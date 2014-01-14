@@ -11,9 +11,9 @@ require_once("parseSWT.class.php");
 define("DISPLAY_LIMIT_HST", 3);
 define("DISPLAY_LIMIT_BITBU", 13);
 
-$fhBus = new parseSWT("HST");
+$fhBus = new parseSWT("HST");  //Haltestelle Hochschule
 $fhBusArray = $fhBus->toArray();
-$bitBus = new parseSWT("bitbu");
+$bitBus = new parseSWT("bitbu");  //Haltestelle Bitburgerstraße
 $bitBusArray = $bitBus->toArray();
 
 echo "

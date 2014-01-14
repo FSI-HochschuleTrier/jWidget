@@ -32,9 +32,9 @@ $('document').ready(function() {
 */
   jWidget.widgetRegister('Mensa', '#079300', 1, 3, 1, 1);
   jWidget.widgetRegister('Homepage', '#DC5801', 2, 2, 2, 1);
-  jWidget.widgetRegister('AnalogUhr', '#004080', 1, 1, 4, 3);
+  jWidget.widgetRegister('Wetterstation', '#004080', 1, 1, 4, 3);
   jWidget.widgetRegister('Bus', '#800080', 1, 2, 4, 1);
-  jWidget.widgetRegister('xkcd', '#ffffff', 2, 1, 2, 3);
+  //jWidget.widgetRegister('xkcd', '#ffffff', 2, 1, 2, 3);
 });
 
 

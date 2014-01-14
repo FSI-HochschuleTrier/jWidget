@@ -1,0 +1,3 @@
+[submodule "widgets/xkcd"]
+	path = widgets/xkcd
+	url = https://github.com/Kasoki/jwidget-xkcd

@@ -1,4 +1,11 @@
-.digit {
+/**
+* Wetterstation Widget
+*
+* @author Michael Ochmann (INF | INF - SMS)
+*/
+
+
+#Wetterstation .digit {
       font-size: 6em;
       font-weight: normal;
       padding: 12px;
@@ -7,24 +14,24 @@
       text-align: center;
 }
 
-.date {
+#Wetterstation .date {
       display: block;
       padding-left: 35px;
 }
 
-.weather {
+#Wetterstation .weather {
       padding: 12px;
       font-size: 2em;
 }
-.weather img { vertical-align: middle; margin-right: 15px; }
+#Wetterstation .weather img { vertical-align: middle; margin-right: 15px; }
 
-.AnalogUhrLogo {
+.WetterstationLogo {
       position: absolute;
       bottom: 0;
       right: 0px;
       margin: 0 25px 25px 0;
 }
 
-#AnalogUhr {
+#Wetterstation {
       text-align: center;
 }
