@@ -4,32 +4,44 @@
 * @author Michael Ochmann (INF | INF - SMS)
 -->
 <h2 class='widgetTitle'>Fachschafts Homepage &raquo; News</h2>
- <ul id='HomepagePanel' style='padding-top: 50px;'>
+ <ul id='HomepagePanel'  class='bxslider'>
 <?php
 
-require_once("../../parseDOM.php");
+function getJSONstream($url) {
+    $str = @file_get_contents($url);
+    if ($str === FALSE) {
+        throw new Exception("Die URL '$url' kann nicht aufgerufen werden!");
+    } else {
+        return $str;
+    }
+}
 
-/*$html = file_get_html("http://fsi.hochschule-trier.de/index.php?id=news");
-
-foreach($html->find('.news-list-item') as $element) {
-$datum = $element->find('span.news-list-date', 0)->plaintext;
-$day = date("d", strtotime($datum));
-$dateElse = date("F y", strtotime($datum));
-@$element = eregi_replace("src=\"", "src=\"http://fsi.fh-trier.de/", $element);
-@$element = eregi_replace("width=\"", "", $element);
-@$element = eregi_replace("height=\"", "", $element);
-echo "<li>$element<span class='HomepageNewsPostDatum'>$day<sup>$dateElse</sup></span></li>";
-}     */
-
-$input = file_get_contents("http://fsi.hochschule-trier.de/contao/news.php");
+try {
+  $input = getJSONstream("https://fsi.hochschule-trier.de/concon/news.php");
+} catch (Exception $e) {
+    echo 'Fehler: ',  $e->getMessage(), "\n";
+    $input = "[]";
+}
 
 $news = json_decode($input);
 
 foreach ($news as $post) {
+  $timestamp = $post[1];
+  $title = $post[0];
+  $excerpt = $post[2];
+  $excerpt = @eregi_replace("\[nbsp\]", " ", $excerpt);
+  $excerpt = @eregi_replace("\[&\]", "&amp;", $excerpt);
   echo "
-<li><h2>".$post[0]."</h2>".$post[2]."<span class='HomepageNewsPostDatum'>".date("d", $post[1])."<sup>".date("F y", $post[1])."</sup></span></li>
+<li><h2>$title</h2>$excerpt<span class='HomepageNewsPostDatum'>".date("d", $timestamp)."<sup>".date("F y", $timestamp)."</sup></span></li>
   ";
 }
 
 ?>
 </ul>
+<script>
+  $('#HomepagePanel').bxSlider({
+           auto: true,
+           adaptiveHeight: true,
+           pause: 30000
+  });
+</script>
