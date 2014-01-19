@@ -211,7 +211,7 @@ hr {
       color:  rgba(255,255,255,0.6);
       position: relative;
       padding-right: 120px;
-      line-height: 2.5em;
+      line-height: 2.0em;
       display: block;
 }
 #Homepage ul li h2 { font-weight: normal; margin-bottom: 12px; padding: 12px; }
@@ -245,13 +245,15 @@ hr {
       line-height: normal;
       color: white;
       padding-top: 20px;
+
 }
 .HomepageNewsPostDatum sup {
-      font-size: small;
+      font-size: large;
       display: block;
       text-align: center;
 }
 
 #HomepagePanel li {
       padding: 20px;
+      font-size: 1.6em;
 }

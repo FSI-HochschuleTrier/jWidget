@@ -7,7 +7,7 @@
 #BusPanel {
       padding: 15px;
       padding-top: 50px;
-      width: 100%;
+      width: 100%;   
 }
 #BusPanel tr td { padding: 6px; border-bottom: solid 1px rgba(255,255,255,0.1); color: #DDDDDD; }
 #BusPanel tr td b { color: white; }
