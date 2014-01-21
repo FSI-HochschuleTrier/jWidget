@@ -7,6 +7,8 @@
  <ul id='HomepagePanel'  class='bxslider'>
 <?php
 
+$monthArray = Array("Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+
 function getJSONstream($url) {
     $str = @file_get_contents($url);
     if ($str === FALSE) {
@@ -32,7 +34,8 @@ foreach ($news as $post) {
   $excerpt = @eregi_replace("\[nbsp\]", " ", $excerpt);
   $excerpt = @eregi_replace("\[&\]", "&amp;", $excerpt);
   echo "
-<li><h2>$title</h2>$excerpt<span class='HomepageNewsPostDatum'>".date("d", $timestamp)."<sup>".date("F y", $timestamp)."</sup></span></li>
+<li><h2>$title</h2>$excerpt<span class='HomepageNewsPostDatum'>".date("d", $timestamp)."<sup>".
+    $monthArray[date("n", $timestamp)-1]." ".date("Y", $timestamp)."</sup></span></li>
   ";
 }
 

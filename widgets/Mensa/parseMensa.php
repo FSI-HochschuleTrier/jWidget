@@ -6,17 +6,18 @@ require_once('../../parseDOM.php');
 
 function parseMensa() {
 $karte = Array();
+$preise = Array();
 
 $html = file_get_html('https://studip.hochschule-trier.de/plugins.php/mensaplugin/show');
 
 foreach($html->find('.menu-inhalt') as $element) {
 $tag = Array();
+$preis = Array();
         foreach($element->find('.menu-inhalt-zeile-text') as $tagtext) {
        if(!empty($tagtext->plaintext)) {array_push($tag, $tagtext);}
     }
 if (!empty($tag)) {array_push($karte, $tag);}
 }
-
 
 $menu = Array();
 $menu[0][0] = $karte[1];
@@ -42,5 +43,4 @@ $menu[4][2] = $karte[19];
 
 return $menuArray = serialize($menu);
 }
-
 ?>

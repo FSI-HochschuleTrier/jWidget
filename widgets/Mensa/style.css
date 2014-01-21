@@ -10,12 +10,14 @@
       background: transparent;
       color: #B7B7B7;
       padding-top: 50px;
+      line-height: 1.8em;
 }
 .MensaTableView li {
       padding: 15px;
-      background: repeat-x url(data:image/gif;base64,R0lGODlhAQACAPABAMjHzP///yH/C1hNUCBEYXRhWE1QAz94cAAh+QQFAAABACwAAAAAAQACAAACAgwKADs=);
+      /*background: repeat-x url(data:image/gif;base64,R0lGODlhAQACAPABAMjHzP///yH/C1hNUCBEYXRhWE1QAz94cAAh+QQFAAABACwAAAAAAQACAAACAgwKADs=);
       background-position: left 60px bottom;
-      background-size: 100% 1px;
+      background-size: 100% 1px;*/
+      margin-bottom: 20px;
 }
 
 .menu-inhalt-zeile-text { vertical-align: bottom; }
@@ -34,4 +36,14 @@
       font-size: large;
       font-weight: lighter;
 }
+
+.MensaHeadline {
+      padding: 8px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      margin-bottom: 8px;
+      display: block;
+}
+
 .MensaTableView li.groupHeader sup { color: #9F9F9F; font-size: x-small; font-style: italic; margin-top: -3px; padding-left: 8px; display: block;}

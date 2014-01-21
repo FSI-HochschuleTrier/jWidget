@@ -63,7 +63,7 @@
 }
 
 .bx-wrapper .bx-pager.bx-default-pager a {
-        background: #fff;
+        background: #BBDDFF;
         text-indent: -9999px;
         display: block;
         width: 10px;
@@ -208,7 +208,7 @@ hr {
 
 #Homepage ul li {
       margin-bottom: 50px;
-      color:  rgba(255,255,255,0.6);
+      color:  rgba(255,255,255,0.7);
       position: relative;
       padding-right: 120px;
       line-height: 2.0em;

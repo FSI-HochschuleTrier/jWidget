@@ -4,6 +4,10 @@
 * @author Michael Ochmann (INF | INF - SMS)
 */
 
+@font-face {
+font-family: WetterIcons;
+src: url('Climacons.ttf');
+}
 
 #Wetterstation .digit {
       font-size: 6em;
@@ -34,4 +38,8 @@
 
 #Wetterstation {
       text-align: center;
+}
+
+.WetterstationSymbol {
+      font-family: WetterIcons;
 }

@@ -21,7 +21,7 @@ for ($dayOfWeek = $dow; $dayOfWeek <= $dow; $dayOfWeek++) {
 if ($dow < 5) {
 //echo "     <li class='MensaGroupHeader'>".$dayOfWeekNames[$dayOfWeek]."</li>\n";
          for($menuSections = 0; $menuSections <= 2; $menuSections++) {
-             echo "     <li>\n         <b>".$menuSectionsNames[$menuSections]."</b>\n";
+             echo "     <li>\n         <span class='MensaHeadline'>".$menuSectionsNames[$menuSections]."</span>\n";
 if ($weekMenuContent[$dayOfWeek][$menuSections]) {
          foreach($weekMenuContent[$dayOfWeek][$menuSections] as $menu) {
          @$menu = eregi_replace("  ", " ", $menu);
