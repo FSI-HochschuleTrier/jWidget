@@ -30,6 +30,8 @@ if ($weekMenuContent[$dayOfWeek][$menuSections]) {
          @$menu = eregi_replace("http://www.studiwerk.de/kiosk/grafik/icon_blume.gif", "widgets/Mensa/icons/vegan@24.png", $menu);
          @$menu = eregi_replace("http://www.studiwerk.de/kiosk/grafik/icon_rind.gif", "widgets/Mensa/icons/beef@24.png", $menu);
          @$menu = eregi_replace("http://www.studiwerk.de/kiosk/grafik/icon_huhn.gif", "widgets/Mensa/icons/chicken@24.png", $menu);
+         @$menu = eregi_replace("http://www.studiwerk.de/kiosk/grafik/icon_wild.gif", "widgets/Mensa/icons/deer@24.png", $menu);
+         @$menu = eregi_replace("http://www.studiwerk.de/kiosk/grafik/icon_fisch.gif", "widgets/Mensa/icons/fish@24.png", $menu);
          @$menu = nl2br($menu);
          echo "         <p>
             $menu

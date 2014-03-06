@@ -37,6 +37,8 @@
       font-weight: lighter;
 }
 
+.MensaTableView li img { vertical-align: middle; margin: 0 3px 0 3px; }
+
 .MensaHeadline {
       padding: 8px;
       background: rgba(255,255,255,0.2);

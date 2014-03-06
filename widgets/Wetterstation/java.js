@@ -16,7 +16,7 @@ function WetterstationClock(){
   digitMin = intMin < 10 ? "0" + intMin : intMin;
   $('.digit').html(digitHours + ":" + digitMin);
 
-  digitMonths = Array('Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember');
+  digitMonths = Array('Januar', 'Februar', 'M&auml;rz', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember');
   $('.date').html(objDate.getDate() + ". " + digitMonths[objDate.getMonth()] + " " + objDate.getFullYear());
   hTimer = window.setTimeout(WetterstationClock, 5000);
 }

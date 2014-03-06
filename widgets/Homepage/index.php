@@ -33,6 +33,7 @@ foreach ($news as $post) {
   $excerpt = $post[2];
   $excerpt = @eregi_replace("\[nbsp\]", " ", $excerpt);
   $excerpt = @eregi_replace("\[&\]", "&amp;", $excerpt);
+  $excerpt = nl2br($excerpt);
   echo "
 <li><h2>$title</h2>$excerpt<span class='HomepageNewsPostDatum'>".date("d", $timestamp)."<sup>".
     $monthArray[date("n", $timestamp)-1]." ".date("Y", $timestamp)."</sup></span></li>
@@ -45,6 +46,7 @@ foreach ($news as $post) {
   $('#HomepagePanel').bxSlider({
            auto: true,
            adaptiveHeight: true,
-           pause: 30000
+           pause: 30000,
+           speed: 0
   });
 </script>
