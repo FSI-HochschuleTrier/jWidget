@@ -16,7 +16,8 @@ $preis = Array();
         foreach($element->find('.menu-inhalt-zeile-text') as $tagtext) {
        if(!empty($tagtext->plaintext)) {array_push($tag, $tagtext);}
     }
-if (!empty($tag)) {array_push($karte, $tag);}
+array_push($karte, $tag);
+
 }
 
 $menu = Array();
@@ -40,7 +41,8 @@ $menu = Array();
 @$menu[4][1] = $karte[18];
 @$menu[4][2] = $karte[19];
 
+$menuArray = serialize($menu);
 
-return $menuArray = serialize($menu);
+return $menuArray;
 }
 ?>
