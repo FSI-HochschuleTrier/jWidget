@@ -7,7 +7,7 @@
  <ul id='HomepagePanel'  class='bxslider'>
 <?php
 
-$monthArray = Array("Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+$monthArray = Array("Januar", "Februar", "M&auml;rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
 
 function getJSONstream($url) {
     $str = @file_get_contents($url);
