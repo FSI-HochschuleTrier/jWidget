@@ -34,7 +34,7 @@ $('document').ready(function() {
   jWidget.widgetRegister('Homepage', 'rgb(39, 131, 175)', 2, 2, 2, 1);
   jWidget.widgetRegister('Wetterstation', '#004080', 1, 1, 4, 3);
   jWidget.widgetRegister('Bus', '#800080', 1, 2, 4, 1);
-  jWidget.widgetRegister('xkcd', '#ffffff', 2, 1, 2, 3);
+  jWidget.widgetRegister('xkcd', '#FFFFFF', 2, 1, 2, 3);
 });
 
 

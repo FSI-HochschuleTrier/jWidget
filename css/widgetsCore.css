@@ -5,8 +5,8 @@
 */
 
 @font-face {
-font-family: Kozuka;
-src: url('fonts/Ubuntu.ttf');
+font-family: System;
+src: url('../fonts/Ubuntu.ttf');
 }
 
 /* =============================================================================

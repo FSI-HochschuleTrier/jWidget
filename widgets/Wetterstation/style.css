@@ -9,6 +9,10 @@ font-family: WetterIcons;
 src: url('Climacons.ttf');
 }
 
+.digit {
+     font-family: Ubuntu;
+}
+
 #Wetterstation .digit {
       font-size: 6em;
       font-weight: normal;

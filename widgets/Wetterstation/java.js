@@ -11,6 +11,7 @@ function WetterstationClock(){
   var intMin = objDate.getMinutes();     // Minuten 0..59
   var intHours = objDate.getHours()%12;  // Stunden 0..11
 
+
   intHours = objDate.getHours();
   digitHours = intHours < 10 ? "0" + intHours : intHours;
   digitMin = intMin < 10 ? "0" + intMin : intMin;

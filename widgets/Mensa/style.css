@@ -49,3 +49,10 @@
 }
 
 .MensaTableView li.groupHeader sup { color: #9F9F9F; font-size: x-small; font-style: italic; margin-top: -3px; padding-left: 8px; display: block;}
+
+.widgetTitle span {
+      font-size: medium;
+      vertical-align: middle;
+      margin-left: 20px;
+      color: #ccc;
+}
