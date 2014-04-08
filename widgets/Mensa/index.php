@@ -13,6 +13,13 @@ $mensaPlanTomorrow = new FSImensaPlan(date("Ym").date("d") + 1);
 $mensaPlanTag = $mensaPlanTomorrow->getMensaPlanArray() != false && date("H") >= 15 ? $mensaPlanTomorrow->getMensaPlanArray() : $mensaPlan->getMensaPlanArray();
 $menuSectionsNames = Array("stammessen" => "Stammessen", "komponentenessen" => "Komponentenessen", "eintopf" => "Eintopf / Sonstiges");
 
+if (@$_GET['json'] == true) {
+         $json = strip_tags(json_encode($mensaPlan->getMensaPlanArray()));
+         $out = preg_replace("/\[[A-Z]\]/", " ", $json);
+         echo $out;
+         exit;
+   }
+
 $target = $mensaPlanTomorrow->getMensaPlanArray() != false && date("H") >= 15 ? "<span>(morgen)</span>" : "<span>(heute)</span>";
 if ($mensaPlanTag === false) { $target = ""; }
 echo "
