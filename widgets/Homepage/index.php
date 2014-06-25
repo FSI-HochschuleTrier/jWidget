@@ -45,8 +45,8 @@ foreach ($news as $post) {
 <script>
   $('#HomepagePanel').bxSlider({
            auto: true,
-           adaptiveHeight: true,
+           adaptiveHeight: false,
            pause: 30000,
-           speed: 0
+           speed: 1
   });
 </script>

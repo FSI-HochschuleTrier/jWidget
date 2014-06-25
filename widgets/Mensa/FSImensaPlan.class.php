@@ -32,7 +32,7 @@ class FSImensaPlan {
                        foreach($menu->children() as $menuZeile) {
 
                        if ($menuZeile->text != "")
-                               array_push($rows, (string) $menuZeile->text);
+                               array_push($rows, (string) ($menuZeile->text) );
                        }
                        $this->mensaPlanArray[$category] = $rows;
                }

@@ -9,7 +9,7 @@
 require_once("parseSWT.class.php");
 
 define("DISPLAY_LIMIT_HST", 3);
-define("DISPLAY_LIMIT_BITBU", 13);
+define("DISPLAY_LIMIT_BITBU", 11);
 
 $fhBus = new parseSWT("HST");  //Haltestelle Hochschule
 $fhBusArray = $fhBus->toArray();

@@ -8,10 +8,15 @@
 <b class='digit'></b>
 <sup class='date'></sup>
 <?php
-$wetter = simplexml_load_file("http://api.openweathermap.org/data/2.5/weather?q=Trier&mode=xml&lang=de");
-$temperature = round( $wetter->temperature['value'] - 273.15);
-$humidity = $wetter->humidity['value'];
-$weatherCode = (string) $wetter->weather['number'];
+try {
+     @$wetter = simplexml_load_file("http://api.openweathermap.org/data/2.5/weather?q=Trier&mode=xml&lang=de");
+     }
+     catch(Excwption $e) {
+
+     }
+@$temperature = round( $wetter->temperature['value'] - 273.15) != -273 ? round( $wetter->temperature['value'] - 273.15) : "N/A";
+@$humidity = $wetter->humidity['value'];
+@$weatherCode = (string) $wetter->weather['number'];
 $weatherCode = substr($weatherCode, 0, 1);
 $weatherSymbols[2] = "F";
 $weatherSymbols[3] = "6";
@@ -25,7 +30,7 @@ echo "
  <p >
   <table class='weather'>
          <tr>
-             <td valign='top'><span class='WetterstationSymbol'>".$weatherSymbols[$weatherCode]."</span></td>
+             <td valign='top'><span class='WetterstationSymbol'>".@$weatherSymbols[$weatherCode]."</span></td>
              <td>
 $temperature &deg;C<br>
 $humidity %

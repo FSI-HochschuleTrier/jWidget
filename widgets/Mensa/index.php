@@ -21,6 +21,7 @@ if (@$_GET['json'] == true) {
    }
 
 $target = $mensaPlanTomorrow->getMensaPlanArray() != false && date("H") >= 15 ? "<span>(morgen)</span>" : "<span>(heute)</span>";
+print_r($mensaPlanTag);
 if ($mensaPlanTag === false) { $target = ""; }
 echo "
  <h2 class='widgetTitle'>Mensa $target</h2>
