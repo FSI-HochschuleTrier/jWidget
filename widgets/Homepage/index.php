@@ -10,7 +10,7 @@
 $monthArray = Array("Januar", "Februar", "M&auml;rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
 
 function getJSONstream($url) {
-    $str = @file_get_contents($url);
+    $str = file_get_contents($url);
     if ($str === FALSE) {
         throw new Exception("Die URL '$url' kann nicht aufgerufen werden!");
     } else {
@@ -18,8 +18,9 @@ function getJSONstream($url) {
     }
 }
 
+
 try {
-  $input = getJSONstream("https://fsi.hochschule-trier.de/concon/news.php");
+  $input = getJSONstream("http://fsi.hochschule-trier.de/category/api/?key=4EFECF393331C8698DE1937378665");
 } catch (Exception $e) {
     echo 'Fehler: ',  $e->getMessage(), "\n";
     $input = "[]";
@@ -28,9 +29,9 @@ try {
 $news = json_decode($input);
 
 foreach ($news as $post) {
-  $timestamp = $post[1];
-  $title = $post[0];
-  $excerpt = $post[2];
+  $timestamp = $post->date;
+  $title = $post->title;
+  $excerpt = $post->content;
   $excerpt = @eregi_replace("\[nbsp\]", " ", $excerpt);
   $excerpt = @eregi_replace("\[&\]", "&amp;", $excerpt);
   $excerpt = nl2br($excerpt);

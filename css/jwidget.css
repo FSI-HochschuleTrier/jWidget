@@ -3,12 +3,22 @@
 *
 * @author Michael Ochmann (INF | INF-SMS)
 */
-
 @font-face {
-font-family: System;
-src: url('../fonts/Ubuntu.ttf');
+font-family: Ubuntu;
+src: url('../fonts/ubuntu.ttf');
 }
 
+@font-face {
+font-family: Klingon;
+src: url('../fonts/klingon.ttf');
+}
+
+@font-face {
+font-family: Keen;
+src: url('../fonts/keen.ttf');
+}
+
+body { background: #001442; padding: 0; margin:0; font-family: Ubuntu; color: white; font-size: large;}
 /* =============================================================================
    NORMALIZATION
 ========================================================================== */
@@ -31,10 +41,7 @@ ul, ol {
 /* =============================================================================
    COMMONS
 ========================================================================== */
-
 a { outline: none; text-decoration: none; color: white; }
-
-body { background: #001442; padding: 0; margin:0; font-family: Ubuntu; color: white; font-size: large;}
 
 .gridster {
     width: 100%;

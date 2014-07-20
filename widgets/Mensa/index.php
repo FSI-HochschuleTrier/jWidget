@@ -21,7 +21,7 @@ if (@$_GET['json'] == true) {
    }
 
 $target = $mensaPlanTomorrow->getMensaPlanArray() != false && date("H") >= 15 ? "<span>(morgen)</span>" : "<span>(heute)</span>";
-print_r($mensaPlanTag);
+//print_r($mensaPlanTag);
 if ($mensaPlanTag === false) { $target = ""; }
 echo "
  <h2 class='widgetTitle'>Mensa $target</h2>
@@ -47,7 +47,7 @@ echo "
 
 function insertIcons($row) {
     $replaceArray = Array('/\[S\]/', '/\[R\]/', '/\[F\]/', '/\[G\]/', '/\[V\]/', '/\[B\]/', '/\[W\]/', '/\[H\]/');
-    $patternArray = Array('meat', 'beef', 'fish', 'vegetable', 'vegetable', 'vegan', 'deer', 'chicken');
+    $patternArray = Array('meat', 'beef', 'fish', 'chicken', 'vegetable', 'vegan', 'deer', 'chicken');
   for ($i = 0; $i < count($patternArray); $i++) {
          $patternArray[$i] = "<img src='widgets/Mensa/icons/".$patternArray[$i]."@24.png' alt='".$patternArray[$i]."' />";
   }
