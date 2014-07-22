@@ -5,7 +5,6 @@
 */
 
 function WetterstationClock(){
-  // Neues Datumsobjekt
   var objDate = new Date();
   var intSek = objDate.getSeconds();     // Sekunden 0..59
   var intMin = objDate.getMinutes();     // Minuten 0..59
