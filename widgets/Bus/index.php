@@ -13,7 +13,7 @@ define("DISPLAY_LIMIT_BITBU", 11);
 
 $fhBus = new parseSWT("HST");  //Haltestelle Hochschule
 $fhBusArray = $fhBus->toArray();
-$bitBus = new parseSWT("bitbu");  //Haltestelle Bitburgerstraße
+$bitBus = new parseSWT("bitbu");  //Haltestelle BitburgerstraÃŸe
 $bitBusArray = $bitBus->toArray();
 
 echo "

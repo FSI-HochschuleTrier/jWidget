@@ -35,27 +35,42 @@ class parseSWT {
   }
 
   private function normalizeResponse() {
-      $normResponse = substr($this->swtResponse, 4);
+      $normResponse = substr($this->swtResponse, 9);
+      $normResponse = substr($normResponse, 0, -5);
+      $normResponse = "[".preg_replace("/'/", "\"", $normResponse)."]";
       $normResponse = json_decode($normResponse);
-      $normResponse = array_chunk($normResponse, 11);
+      $normResponse = array_chunk($normResponse, 9);
+      $this->responseDetails = $normResponse[count($normResponse) - 1][0];
 
-      $this->responseDetails = $normResponse[count($normResponse) - 1][2];
     array_unshift($this->responseDetails, "Details");
     array_pop($normResponse);
       $this->normResponse = $normResponse;
+      $this->debug($this->normResponse);
+      $this->debug($this->responseDetails);
   }
 
   private function extractArrivalTime($busObject) {
-      $time = round(($busObject[2] + $busObject[3]) / 1000);
+      //$time = round(($busObject[2] + $busObject[3]) / 1000);
+      $time = $this->decodeTime($busObject[0]);
       $time = date("H:i", $time);
     return $time;
   }
 
   private function extractLiveTime($busObject) {
-      $time = round(($busObject[7] + $busObject[8]) / 1000);
+      //$time = round(($this->decodeTime($busObject[0]) + $this->decodeTime($busObject[4])) / 1000);
+      $time = $this->decodeTime($busObject[4]);
       $time = date("H:i", $time);
     return $time;
   }
+
+    function decodeTime($sTime) {
+        $sBase = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_$";
+        $iSum = 0;
+        for ($i = 0; $i < strlen($sTime); $i++) {
+            $iSum += strpos($sBase, $sTime{$i}) * pow(strlen($sBase), strlen($sTime) - $i - 1);
+        }
+        return $iSum / 1000;
+    }
 
   private function msort($array, $key, $sort_flags = SORT_REGULAR) {
     if (is_array($array) && count($array) > 0) {
@@ -87,14 +102,21 @@ class parseSWT {
   public function toArray() {
       $arrayOfBusses = Array();
     foreach($this->normResponse as $bus) {
-      array_push($arrayOfBusses, Array("route" => $this->responseDetails[$bus[5]],
-                                       "destination" => $this->responseDetails[$bus[6]],
+      array_push($arrayOfBusses, Array("route" => $this->responseDetails[$bus[2]],
+                                       "destination" => $this->responseDetails[$bus[3]],
                                        "arrival" => $this->extractArrivalTime($bus),
                                        "live" => $this->extractLiveTime($bus)
       ));
     }
     return $this->msort($arrayOfBusses, "live");
   }
+
+    private function debug(&$text) {
+        return;
+        echo "<pre>";
+        print_r($text);
+        echo "</pre>";
+    }
 }
 
 ?>
