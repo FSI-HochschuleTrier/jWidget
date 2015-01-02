@@ -4,7 +4,6 @@
 * @author Michael Ochmann (INF | INF - SMS)
 -->
 <div style='position: absolute;'>
-<marquee style="padding: 8px;">JERKER actual playing: <b>keine hanung was</b></marquee>
 <b class='digit'></b>
 <sup class='date'></sup>
 <?php

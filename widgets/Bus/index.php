@@ -1,44 +1,45 @@
-<!--
-* Bus Widget
-*
-* @author Michael Ochmann (INF | INF - SMS)
--->
+<?php
+/**
+ * Bus widget
+ * Version: 2.0.0
+ *
+ * @author Michael Ochmann (INF | INF - SMS)
+ */
+
+define("LIMIT_HST", 3);
+define("LIMIT_BITBU", 11);
+
+require_once("SWTParser.class.php");
+require_once("Bus.class.php");
+
+$hst    = new SWTParser("HST");
+$bitbu  = new SWTParser("bitbu");
+?>
 
 <h2 class='widgetTitle'>Busverbindungen</h2>
-<?php
-require_once("parseSWT.class.php");
-
-define("DISPLAY_LIMIT_HST", 3);
-define("DISPLAY_LIMIT_BITBU", 11);
-
-$fhBus = new parseSWT("HST");  //Haltestelle Hochschule
-$fhBusArray = $fhBus->toArray();
-$bitBus = new parseSWT("bitbu");  //Haltestelle Bitburgerstraße
-$bitBusArray = $bitBus->toArray();
-
-echo "
- <table id='BusPanel' cellspacing='0'>
+    <table id='BusPanel' cellspacing='0'>
         <tr>
             <td colspan='3' class='BusHeadline'>Haltestelle Hochschule</td>
-       </tr>
+        </tr>
         <tr>
             <th>Abfahrt</th>
             <th>Linie</th>
             <th>Nach</th>
-       </tr>
-";
+        </tr>
+<?php
 $i = 0;
-foreach($fhBusArray as $bus) {
+foreach($hst->getBusses() as $bus) {
   echo "
  <tr>
-     <td><b>".$bus['arrival']."</b></td>
-     <td>".$bus['route']."</td>
-     <td>".$bus['destination']."</td>
+     <td><b>".$bus->getLive()."</b></td>
+     <td>$bus->route</td>
+     <td>$bus->destination</td>
 </tr>
   ";
-  if (++$i == DISPLAY_LIMIT_HST) break;
+  if (++$i == LIMIT_HST)
+      break;
 }
-echo "
+?>
         <tr>
             <td colspan='3' style='border: none;'>&nbsp;</td>
        </tr>
@@ -50,20 +51,18 @@ echo "
             <th>Linie</th>
             <th>Nach</th>
        </tr>
-";
+<?php
 $i = 0;
-foreach($bitBusArray as $bus) {
+foreach($bitbu->getBusses() as $bus) {
   echo "
  <tr>
-     <td><b>".$bus['live']."</b></td>
-     <td>".$bus['route']."</td>
-     <td>".$bus['destination']."</td>
+     <td><b>".$bus->getLive()."</b></td>
+     <td>$bus->route</td>
+     <td>$bus->destination</td>
 </tr>
   ";
-  if (++$i == DISPLAY_LIMIT_BITBU) break;
+  if (++$i == LIMIT_BITBU)
+      break;
 }
-echo "
-</table>
-";
-
 ?>
+</table>
