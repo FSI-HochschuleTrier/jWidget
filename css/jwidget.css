@@ -1,11 +1,11 @@
 /**
-* Dies ist das Core-Stylesheet. Es ist verantwortlich für das Aussehen der Widgets sowie das Aussehen der Seite
+* Dies ist das Core-Stylesheet. Es ist verantwortlich fÃ¼r das Aussehen der Widgets sowie das Aussehen der Seite
 *
 * @author Michael Ochmann (INF | INF-SMS)
 */
 @font-face {
 font-family: Ubuntu;
-src: url('../fonts/ubuntu.ttf');
+src: url('../fonts/Ubuntu.ttf');
 }
 
 @font-face {
