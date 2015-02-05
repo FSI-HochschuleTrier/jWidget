@@ -1,3 +1,6 @@
 [submodule ".\\widgets\\xkcd"]
 	path = .\\widgets\\xkcd
 	url = git@github.com:kasoki/jwidget-xkcd.git
+[submodule "jwidget-xkcd"]
+	path = jwidget-xkcd
+	url = git@github.com:FSI-HochschuleTrier/jwidget-xkcd.git
