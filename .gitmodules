@@ -4,3 +4,6 @@
 [submodule "jwidget-xkcd"]
 	path = jwidget-xkcd
 	url = https://github.com/FSI-HochschuleTrier/jwidget-xkcd.git
+[submodule "widgets/xkcd"]
+	path = widgets/xkcd
+	url = https://github.com/FSI-HochschuleTrier/jwidget-xkcd.git
