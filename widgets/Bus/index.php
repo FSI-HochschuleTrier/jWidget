@@ -7,7 +7,7 @@
  */
 
 define("LIMIT_HST", 3);
-define("LIMIT_BITBU", 11);
+define("LIMIT_BITBU", 10);
 
 require_once("SWTParser.class.php");
 require_once("Bus.class.php");
