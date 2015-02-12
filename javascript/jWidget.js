@@ -1,6 +1,6 @@
 /**
 * Dies ist die Core-Javascript Datei. Alle notwendigen JavaScripts der Widgets und ihre Stylesheets werden hier geladen.
-* Die Widgets werden hier initialisiert, d.h. wenn ein Widget im Ordner "widgets" hinzugefügt wurde, muss es auch hier
+* Die Widgets werden hier initialisiert, d.h. wenn ein Widget im Ordner "widgets" hinzugefÃ¼gt wurde, muss es auch hier
 * bekannt gemacht werden.
 *
 * @autor Michael Ochmann (INF | INF-SMS)
@@ -12,10 +12,12 @@ $('document').ready(function(){
   jWidget.init();
 
   jWidget.registerWidget('Mensa', '#079300', 1, 3, 1, 1, 60);
-  jWidget.registerWidget('Homepage', 'rgb(39, 131, 175)', 2, 2, 2, 1, 60);
+  //jWidget.registerWidget('Homepage', 'rgb(39, 131, 175)', 2, 2, 2, 1, 60);
   jWidget.registerWidget('Wetterstation', '#004080', 1, 1, 4, 3, 1);
   jWidget.registerWidget('Bus', '#800080', 1, 2, 4, 1, 5);
-  jWidget.registerWidget('xkcd', '#FFFFFF', 2, 1, 2, 3, 6);
+  //jWidget.registerWidget('xkcd', '#FFFFFF', 2, 1, 2, 3, 6);
+  jWidget.registerWidget('xkcd', '#FFFFFF', 2, 2, 2, 1, 6);
+  jWidget.registerWidget('Console', '#000000', 2, 1, 2, 3, 30);
 });
 
 
