@@ -47,7 +47,7 @@ echo "
 
 function insertIcons($row) {
     $replaceArray = Array('/\[S\]/', '/\[R\]/', '/\[F\]/', '/\[G\]/', '/\[V\]/', '/\[B\]/', '/\[W\]/', '/\[H\]/', "/\[M\]/", "/\[A\]/");
-    $patternArray = Array('meat', 'beef', 'fish', 'chicken', 'vegetable', 'vegan', 'deer', 'chicken', 'alcohol', 'lactose');
+    $patternArray = Array('meat', 'beef', 'fish', 'chicken', 'vegetable', 'vegan', 'deer', 'chicken', 'lactose', 'alcohol');
   for ($i = 0; $i < count($patternArray); $i++) {
          $patternArray[$i] = "<img src='widgets/Mensa/icons/".$patternArray[$i]."@24.png' alt='".$patternArray[$i]."' />";
   }
