@@ -64,7 +64,7 @@ class SWTParser {
 		for ($i = 0; $i < strlen($gwtDate); $i++) {
 			$timestamp += strpos($baseDict, $gwtDate{$i}) * pow(strlen($baseDict), strlen($gwtDate) - $i - 1);
 		}
-		return $timestamp / 1000;
+		return round($timestamp / 1000);
 	}
 
 	public function getBusses() {

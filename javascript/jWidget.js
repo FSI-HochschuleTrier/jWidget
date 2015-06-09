@@ -13,11 +13,12 @@ $('document').ready(function(){
 
   jWidget.registerWidget('Mensa', '#079300', 1, 3, 1, 1, 60);
   //jWidget.registerWidget('Homepage', 'rgb(39, 131, 175)', 2, 2, 2, 1, 60);
-  jWidget.registerWidget('Wetterstation', '#004080', 1, 1, 4, 3, 1);
+	jWidget.registerWidget('Niv', '#000000', 2, 2, 2, 1, 60);
+	jWidget.registerWidget('Wetterstation', '#004080', 1, 1, 4, 3, 1);
   jWidget.registerWidget('Bus', '#800080', 1, 2, 4, 1, 5);
-  //jWidget.registerWidget('xkcd', '#FFFFFF', 2, 1, 2, 3, 6);
-  jWidget.registerWidget('xkcd', '#FFFFFF', 2, 2, 2, 1, 6);
-  jWidget.registerWidget('Console', '#000000', 2, 1, 2, 3, 30);
+  jWidget.registerWidget('xkcd', '#FFFFFF', 2, 1, 2, 3, 6);
+  //jWidget.registerWidget('xkcd', '#FFFFFF', 2, 2, 2, 1, 6);
+  //jWidget.registerWidget('Console', '#000000', 2, 1, 2, 3, 30);
 });
 
 

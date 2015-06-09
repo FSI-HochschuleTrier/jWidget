@@ -1,0 +1,35 @@
+@font-face {
+	font-family: Death;
+	src: url("images/death.ttf");
+}
+
+#Niv {
+	background: url("images/niv2.png") no-repeat center center #000000 !important;
+	background-size: 100% !important;
+	color: #ffeeb3;
+}
+
+h1, h3 {
+	text-transform: uppercase;
+	font-family: Death;
+}
+
+.nivDate {
+	font-size: 3em;
+	font-weight: 100;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	bottom: 8%;
+}
+
+.nivText {
+	background: transparent;
+	padding: 10% 5%;
+	color: #ffffff;
+	line-height: 2em;
+}
+.nivText b {
+	margin-top: 2%;
+	display: block;
+}

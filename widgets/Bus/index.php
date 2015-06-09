@@ -12,7 +12,7 @@ define("LIMIT_BITBU", 10);
 require_once("SWTParser.class.php");
 require_once("Bus.class.php");
 
-$hst    = new SWTParser("HST");
+$hst    = new SWTParser("HBF");
 $bitbu  = new SWTParser("bitbu");
 ?>
 
