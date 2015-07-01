@@ -6,8 +6,8 @@
  * @author Michael Ochmann (INF | INF - SMS)
  */
 
-define("LIMIT_HST", 50);
-define("LIMIT_BITBU", 50);
+define("LIMIT_HST", 3);
+define("LIMIT_BITBU", 10);
 
 require_once("SWTParser.class.php");
 require_once("Bus.class.php");

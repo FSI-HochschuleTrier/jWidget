@@ -4,7 +4,7 @@
 * @author Michael Ochmann (INF | INF - SMS)
 */
 $('document').ready(function() {
-  setTimeout(BusScroll, 2000);
+ // setTimeout(BusScroll, 2000);
 });
 
 

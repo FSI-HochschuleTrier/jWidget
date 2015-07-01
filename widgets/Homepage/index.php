@@ -48,6 +48,6 @@ foreach ($news as $post) {
            auto: true,
            adaptiveHeight: false,
            pause: 30000,
-           speed: 400
+           speed: 1
   });
 </script>
