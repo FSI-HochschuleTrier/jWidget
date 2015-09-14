@@ -59,7 +59,7 @@ class SWTParser {
 	}
 
 	private function gwtTimeToUnix($gwtDate) {
-		$baseDict = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_$";
+		$baseDict = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$_';
 		$timestamp = 0;
 		for ($i = 0; $i < strlen($gwtDate); $i++) {
 			$timestamp += strpos($baseDict, $gwtDate{$i}) * pow(strlen($baseDict), strlen($gwtDate) - $i - 1);

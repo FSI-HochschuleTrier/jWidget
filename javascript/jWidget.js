@@ -50,9 +50,9 @@ var jWidget = jWidget || {
            widget_margins         : [jWidget.margin, jWidget.margin],
            widget_base_dimensions : [$(window).width() / 4 - (jWidget.margin * 2),$(window).height() / 3 - (jWidget.margin * 2)],
            max_cols               : jWidget.maxCols,
-           max_size_x             : jWidget.maxRows,
+           max_size_x             : jWidget.maxRows
        }).data('gridster');
-       setInterval(jWidget.refresh, 1 * 60000);
+       setInterval(jWidget.refresh, 60000);
     }
 };
 
