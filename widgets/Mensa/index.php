@@ -2,7 +2,7 @@
 require_once("classes/Mensen.php");
 require_once("classes/Speiseplan.php");
 
-$speiseplan = new Speiseplan();
+$speiseplan = new Speiseplan("20151005");
 $test = $speiseplan->theken();
 
 echo "
@@ -12,6 +12,8 @@ echo "
 
 foreach ($speiseplan->theken() as $theke) {
 	if (count($theke->meals) <= 0)
+		continue;
+	if ($theke->id != Theken::STAMMESSEN && $theke->id != Theken::KOMPONENTENESSEN)
 		continue;
 	echo "     <li class='MensaMeal'>\n<span class='MensaHeadline'>".$theke->name."</span>\n";
 	foreach ($theke->meals as $meal) {
