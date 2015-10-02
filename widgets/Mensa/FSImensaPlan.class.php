@@ -1,8 +1,13 @@
 <?php
 
+include("Mensen.php");
+include ("Meal.php");
+include("Theke.php");
+include("Price.php");
+
 class FSImensaPlan {
     private $date; // FORMAT: YYYYMMDD
-    private static $url = "http://studiwerk.de/cgi-bin/cms?_SID=NEW&_bereich=system&_aktion=export_speiseplan&datum=";
+    private static $url = "http://studiwerk.de/eo/cms?_bereich=artikel&_aktion=suche_rubrik&idrubrik=1031&_type=xml&_sprache=xml&_seitenlaenge=1000&datum1=";
     private $mensaPlanArray = Array();
     private $xmlSource;
 
@@ -13,31 +18,19 @@ class FSImensaPlan {
   }
 
   private function buildMensaPlan() {
-     @$this->xmlSource = simplexml_load_file(FSImensaPlan::$url . $this->date);
+	  @$this->xmlSource = simplexml_load_file(FSImensaPlan::$url . $this->date);
+	  $standorte = $this->xmlSource->artikel->content->calendarday->{'standort-liste'}->standort;
+	  $schneidershof = null;
+	  foreach ($standorte as $standort) {
+		  if ($standort->attributes()["id"] != Mensen::MENSA_SCHNEIDERSHOF)
+			  continue;
+		  $schneidershof = $standort;
 
-         if ($this->xmlSource != false) {
-      foreach ($this->xmlSource->{'mensa-7'}->children() as $menuTitle => $menu) {
-               if (preg_match("/menue*/", $menuTitle)) {
-                       switch($menuTitle) {
-                         case "menue-1":
-                           $category = "stammessen";
-                           break;
-                         case "menue-2":
-                           $category = "komponentenessen";
-                           break;
-                         case "menue-3":
-                           $category = "eintopf";
-                       }
-                       $rows = Array();
-                       foreach($menu->children() as $menuZeile) {
-
-                       if ($menuZeile->text != "")
-                               array_push($rows, (string) ($menuZeile->text) );
-                       }
-                       $this->mensaPlanArray[$category] = $rows;
-               }
-      }
-         }
+		  foreach ($schneidershof->{'theke-liste'}->theke as $theke) {
+			  $obj = new Theke($theke);
+			  array_push($this->mensaPlanArray, $obj);
+		  }
+	  }
   }
 
   public function getMensaPlanArray() { if (!empty($this->mensaPlanArray)) { return $this->mensaPlanArray; } else { return false; } }
