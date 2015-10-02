@@ -1,7 +1,7 @@
 <?php
 
 include("Mensen.php");
-include ("Meal.php");
+include("Meal.php");
 include("Theke.php");
 include("Price.php");
 

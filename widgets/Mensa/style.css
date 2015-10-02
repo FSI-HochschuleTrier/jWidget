@@ -10,7 +10,7 @@
       background: transparent;
       color: #B7B7B7;
       padding-top: 50px;
-      line-height: 1.8em;
+      line-height: 1.5em;
 }
 .MensaTableView li {
       padding: 15px;
@@ -21,6 +21,25 @@
 }
 
 .menu-inhalt-zeile-text { vertical-align: bottom; }
+
+.MensaMeal section {
+	display: inline-block;
+	color: white;
+	line-height: 1.0em;
+	margin-right: 15px;
+}
+.MensaMealTitle {
+	margin-top: 20px;
+}
+.MensaMeal section {
+	font-size: medium;
+}
+.MensaMeal section sup, .MensaMealTitle {
+	display: block;
+}
+.MensaMeal i {
+	font-size: medium;
+}
 
 .MensaTableView li b { color: white; }
 

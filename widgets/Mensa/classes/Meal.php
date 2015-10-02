@@ -23,7 +23,9 @@ class Meal {
 	}
 
 	private function addDish(SimpleXMLElement $dish) {
-		$content = $dish->{'mahlzeitkomponenten-list'}->{'mahlzeitkomponenten-item'}->data->title;
+		if (!is_object($dish))
+			return;
+		$content = @$dish->{'mahlzeitkomponenten-list'}->{'mahlzeitkomponenten-item'}->data->title;
 		if (!empty($content) && $content != "")
 			array_push($this->sidedishes, (string) $content);
 	}

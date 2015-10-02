@@ -9,6 +9,8 @@ class Theke {
 		$this->id	= (string) $theke->attributes()["id"];
 		$this->name	= (string) $theke->label;
 		foreach ($theke->{'mahlzeit-liste'}->mahlzeit as $mahlzeit) {
+			if (!is_object($mahlzeit))
+				continue;
 			$obj = new Meal($mahlzeit);
 			array_push($this->meals, $obj);
 		}

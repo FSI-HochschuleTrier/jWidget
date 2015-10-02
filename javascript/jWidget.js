@@ -11,7 +11,7 @@
 $('document').ready(function(){
   jWidget.init();
 
-  jWidget.registerWidget('Mensa', '#079300', 1, 3, 1, 1, 60);
+  jWidget.registerWidget('NewMensa', '#079300', 1, 3, 1, 1, 60);
   jWidget.registerWidget('Homepage', 'rgb(39, 131, 175)', 2, 2, 2, 1, 60);
 	//jWidget.registerWidget('Niv', '#000000', 2, 2, 2, 1, 60);
 	jWidget.registerWidget('Wetterstation', '#004080', 1, 1, 4, 3, 1);
