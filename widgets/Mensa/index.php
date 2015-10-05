@@ -29,6 +29,11 @@ echo "
  <ul class='MensaTableView' id='MensaPanel'>
 ";
 
+if (empty($theken)) {
+	echo "<li style='color: white;'><img src='widgets/Mensa/MensaClosed.png' style='vertical-align: middle; margin-right: 15px;' />Mensa geschlossen</li>";
+	exit;
+}
+
 foreach ($theken as $theke) {
 	if (count($theke->meals) <= 0)
 		continue;
