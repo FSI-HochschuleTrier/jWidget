@@ -8,7 +8,8 @@ $target	= date("H") < 15 && date("m") <= 30 ? "(heute)" : "(morgen)";
 $theken	= json_decode(file_get_contents(urldecode("https://fsi.hochschule-trier.de/apis/mensa/?mensa=".Mensen::MENSA_SCHNEIDERSHOF."&date=$when")));
 $names	= array(
 	"theke-1"	=> "Stammessen",
-	"theke-2"	=> "Komponentenessen"
+	"theke-2"	=> "Komponentenessen",
+	"theke-3"	=> "Kleine Karte"
 );
 
 function getName($key) {
@@ -37,7 +38,7 @@ if (empty($theken)) {
 foreach ($theken as $theke) {
 	if (count($theke->meals) <= 0)
 		continue;
-	if ($theke->id != Theken::STAMMESSEN && $theke->id != Theken::KOMPONENTENESSEN)
+	if ($theke->id != Theken::STAMMESSEN && $theke->id != Theken::KOMPONENTENESSEN && $theke->id != Theken::KLEINE_KARTE)
 		continue;
 	echo "     <li class='MensaMeal'>\n<span class='MensaHeadline'>".getName($theke->id)."</span>\n";
 	foreach ($theke->meals as $meal) {
