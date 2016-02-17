@@ -20,7 +20,7 @@ function getJSONstream($url) {
 
 
 try {
-  $input = getJSONstream("http://fsi.hochschule-trier.de/category/api/?key=4EFECF393331C8698DE1937378665");
+  $input = getJSONstream("https://fsi.hochschule-trier.de/category/api/?key=4EFECF393331C8698DE1937378665");
 } catch (Exception $e) {
     echo 'Fehler: ',  $e->getMessage(), "\n";
     $input = "[]";

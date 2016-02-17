@@ -1,0 +1,75 @@
+<?php
+
+class SWTParser {
+	private $swtResponse;
+	private $normResponse;
+	private $responseDetails;
+	private $busses = array();
+
+	const URL = "http://212.18.193.124/onlineinfo/onlineinfo/stopData";
+
+	public function __construct($stop) {
+		$this->getDataBYcURL($stop);
+		$this->normalizeResponse();
+		$this->toClass();
+	}
+
+	private function getDataBYcURL($stopData) {
+		$body = "5|0|6|http://212.18.193.124/onlineinfo/onlineinfo/|7E201FB9D23B0EA0BDBDC82C554E92FE|com.initka.onlineinfo.".
+				"client.services.StopDataService|getDepartureInformationForStop|java.lang.String/2004016611|".$stopData.
+				"|1|2|3|4|1|5|6|";
+		$connection = curl_init();
+
+		curl_setopt($connection, CURLOPT_URL, SWTParser::URL);
+		curl_setopt($connection, CURLOPT_HTTPHEADER, array(
+			"X-GWT-Module-Base: http://212.18.193.124/onlineinfo/onlineinfo/",
+			"X-GWT-Permutation: D8AB656D349DD625FC1E4BA18B0A253C",
+			"Content-Type: text/x-gwt-rpc; charset=UTF-8"
+		));
+		curl_setopt($connection, CURLOPT_POSTFIELDS, $body);
+		curl_setopt($connection, CURLOPT_RETURNTRANSFER, 1);
+		$this->swtResponse = curl_exec($connection);
+		curl_close($connection);
+	}
+
+	private function normalizeResponse() {
+		$normResponse = substr($this->swtResponse, 9);
+		$normResponse = substr($normResponse, 0, -5);
+		$normResponse = "[".preg_replace("/'/", "\"", $normResponse)."]";
+		$normResponse = json_decode($normResponse);
+		$normResponse = array_chunk($normResponse, 9);
+		$this->responseDetails = $normResponse[count($normResponse) - 1][0];
+
+		array_unshift($this->responseDetails, "Details");
+		array_pop($normResponse);
+		$this->normResponse = $normResponse;
+	}
+
+	private function toClass() {
+		foreach($this->normResponse as $bus) {
+echo "<pre>";
+print_r($bus);
+			$route			= $this->responseDetails[$bus[2]];
+			$destination	= $this->responseDetails[$bus[3]];
+			$arrival		= $this->gwtTimeToUnix($bus[0]);
+			$live			= $this->gwtTimeToUnix($bus[4]);
+			$object			= new Bus($route, $destination, $arrival, $live);
+
+			array_push($this->busses, $object);
+		}
+		usort($this->busses, array("Bus", "busSort"));
+	}
+
+	private function gwtTimeToUnix($gwtDate) {
+		$baseDict = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$_';
+		$timestamp = 0;
+		for ($i = 0; $i < strlen($gwtDate); $i++) {
+			$timestamp += strpos($baseDict, $gwtDate{$i}) * pow(strlen($baseDict), strlen($gwtDate) - $i - 1);
+		}
+		return round($timestamp / 1000);
+	}
+
+	public function getBusses() {
+		return $this->busses;
+	}
+}
