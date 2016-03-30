@@ -7,7 +7,10 @@
 <b class='digit'></b>
 <sup class='date'></sup>
 <?php
-$wetter = @simplexml_load_file("http://api.openweathermap.org/data/2.5/weather?q=Trier&mode=xml&lang=de");
+
+require_once("key.php");
+
+$wetter = @simplexml_load_file("http://api.openweathermap.org/data/2.5/weather?q=Trier&mode=xml&lang=de&APPID=".APIKEY);
 
 @$temperature = round( $wetter->temperature['value'] - 273.15) != -273 ? round( $wetter->temperature['value'] - 273.15) : "N/A";
 @$humidity = $wetter->humidity['value'];
