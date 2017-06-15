@@ -42,7 +42,7 @@ var ClockStylekit = {};
 		canvas = initializeCanvas(typeof canvas === "string" ? document.getElementById(canvas) : canvas);
 		var context = canvas.getContext("2d");
 		var pixelRatio = canvas.paintCodePixelRatio;
-        
+
 		//// Resize to Target Frame
 		context.save();
 		var resizedFrame = applyResizingBehavior(resizing, makeRect(0, 0, 500, 500), targetFrame);
@@ -5979,7 +5979,7 @@ var ClockStylekit = {};
 
 			context.restore();
 		}
-        
+
 		context.restore();
 
 	}

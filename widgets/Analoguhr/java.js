@@ -5,7 +5,6 @@
 
 function clock()
 {
-
     let pacmanstate = [];
     pacmanstate[0] = true;
     pacmanstate[1] = false;
@@ -35,7 +34,6 @@ function clock()
     draw();
     clearInterval(window.ctimer);
     window.ctimer = setInterval(myTimer, 50);
-
 
     function myTimer()
     {

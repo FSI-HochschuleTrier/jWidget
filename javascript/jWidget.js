@@ -19,7 +19,8 @@ $('document').ready(function ()
     jWidget.registerWidget('Bus', '#800080', 1, 2, 4, 2, 5);
     //jWidget.registerWidget('xkcd', '#FFFFFF', 2, 1, 2, 3, 6);
     jWidget.registerWidget('Analoguhr', '#004080', 1, 1, 4, 1, null);
-    //jWidget.registerWidget('xkcd', '#FFFFFF', 2, 2, 2, 1, 6);
+    jWidget.registerWidget('Kanban', '#FFFFFF', 2, 2, 2, 1, 30);
+    //jWidget.registerWidget('xkcd', '#FFFFFF', 2, 1, 2, 3, 6);
     //jWidget.registerWidget('Console', '#000000', 2, 1, 2, 3, 30);
 });
 

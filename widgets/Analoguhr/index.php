@@ -25,7 +25,6 @@
                     console.error("Failed to load ClockStylekit");
                     cosnole.error(exception);
                 });
-
     });
 
 
