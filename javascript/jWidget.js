@@ -22,6 +22,7 @@ $('document').ready(function ()
     jWidget.registerWidget('Kanban', '#FFFFFF', 2, 2, 2, 1, 30);
     //jWidget.registerWidget('xkcd', '#FFFFFF', 2, 1, 2, 3, 6);
     //jWidget.registerWidget('Console', '#000000', 2, 1, 2, 3, 30);
+    jWidget.registerWidget('MPD', '#000000', 1, 1, 2, 3, null);
 });
 
 var jWidget = jWidget || {

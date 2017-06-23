@@ -16,19 +16,18 @@ curl_setopt($curl, CURLOPT_URL, "https://gitlab.fsi.hochschule-trier.de/api/v3/p
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-$outPutOpen = curl_exec($curl);
+$outputOpen = curl_exec($curl);
 curl_close($curl);
 
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, "https://gitlab.fsi.hochschule-trier.de/api/v3/projects/399/issues?state=closed&per_page=10");
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-$outPutClosed = curl_exec($curl);
+$outputClosed = curl_exec($curl);
 curl_close($curl);
 
-file_put_contents("test.txt", $outPutClosed);
 
-//file_put_contents("issues_resolve_examples.json", $outPut); //get an example of retrieved data
+//file_put_contents("issues_resolve_examples.json", $outputOpen); //get an example of retrieved data
 
 echo '
     
@@ -70,7 +69,7 @@ echo '
 
 <script type = "text/javascript" >
 
-        evaluateData('.$outPutOpen.','.$outPutClosed.');
+        evaluateData('.$outputOpen.','.$outputClosed.');
 
 </script >';
 ?>
