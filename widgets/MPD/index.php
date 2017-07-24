@@ -6,7 +6,6 @@
  * Date: 15.06.17
  * Copyright: Philipp Dippel
  */
-
 ?>
 
 
