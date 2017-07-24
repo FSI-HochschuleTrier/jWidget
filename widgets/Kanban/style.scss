@@ -1,0 +1,141 @@
+
+#Kanban {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  #main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 98%;
+    height: 98%;
+    margin: auto;
+  }
+
+  .listBox {
+    border-radius: 5px;
+    display: flex;
+    background: red;
+    width: 24%;
+    height: 48%;
+  }
+
+  .title {
+    height: 25px;
+    background: #FAFAFA;
+    width: 100%;
+    text-align: center;
+    color: black;
+    vertical-align: middle;
+    line-height: 26px;
+    order: 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  ul {
+    order: 1;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    overflow-y: scroll;
+    margin-bottom: 5px;
+  }
+
+  li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    flex-basis: 20px;
+
+    border-radius: 2px;
+    margin-top: 5px;
+    color: black;
+    background: white;
+    font-size: 12px;
+
+    .leftContainer {
+      width: 80%;
+      display: flex;
+
+      .itemTitle {
+        padding-right: 3px;
+        font-size: 1.2em;
+      }
+    }
+
+
+    .avatar {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      background-size: contain;
+      border-radius: 50px;
+    }
+  }
+
+
+  @mixin topBorder($color) {
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-color: $color;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  #boxAlle {
+    @include topBorder(rgba(255, 0, 0, 1));
+    background: rgba(255, 0, 0, 0.5);
+  }
+
+  #boxSprecher {
+    @include topBorder(rgba(142, 68, 173, 1));
+    background: rgba(142, 68, 173, 0.5);
+  }
+
+  #boxKasse {
+    @include topBorder(rgba(204, 0, 51, 1));
+    background: rgba(204, 0, 51, 0.5);
+  }
+
+  #boxAdmin {
+    @include topBorder(rgba(173, 141, 67, 1));
+    background: rgba(173, 141, 67, 0.5);
+  }
+
+  #boxWebmaster {
+    @include topBorder(rgba(0, 81, 150, 1));
+    background: rgba(0, 81, 150, 0.5);
+  }
+
+  #boxEvents {
+    @include topBorder(rgba(105, 209, 0, 1));
+    background: rgba(105, 209, 0, 0.5);
+  }
+
+  #boxRaumwart {
+    @include topBorder(rgba(233, 127, 0, 1));
+    background: rgba(233, 127, 0, 0.5);
+  }
+
+  #boxClosed {
+    @include topBorder(rgba(45, 45, 45, 1));
+    background: rgba(45, 45, 45, 0.5);
+  }
+
+}
+
