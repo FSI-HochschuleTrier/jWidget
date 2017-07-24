@@ -17,12 +17,9 @@ curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 $outputOpen = curl_exec($curl);
-curl_close($curl);
 
-$curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, "https://gitlab.fsi.hochschule-trier.de/api/v3/projects/399/issues?state=closed&per_page=10");
-curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
 $outputClosed = curl_exec($curl);
 curl_close($curl);
 
