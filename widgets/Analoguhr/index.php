@@ -15,15 +15,15 @@
 
     $('document').ready(function ()
     {
-            $.getScript("widgets/Analoguhr/ClockStylekit.js")
+            $.getScript("widgets/Analoguhr/ClockStyleKit.js")
                 .done(function (script, textStatus)
                 {
                     clock();
                 })
                 .fail(function (jqxhr, settings, exception)
                 {
-                    console.error("Failed to load ClockStylekit");
-                    cosnole.error(exception);
+                    console.error("Failed to load ClockStyleKit");
+                    console.error(exception);
                 });
     });
 
