@@ -25,7 +25,7 @@ class CalDavClient
         $this->user = (string)USERNAME;
         $this->password = (string)CLOUDPASSWORD;
 
-        $this->hostKlausren = 'https://cloud.fsi.hochschule-trier.de/remote.php/caldav/calendars/' . USERNAME . '/klausurplan';
+        $this->hostKlausren = 'https://cloud.fsi.hochschule-trier.de/remote.php/caldav/calendars/' . USERNAME . '/klausurplan_shared_by_dippelp';
         $this->hostFSI = 'https://cloud.fsi.hochschule-trier.de/remote.php/caldav/calendars/' . USERNAME . '/fachschaftsrat_shared_by_root';
         $this->port = 443;
 
