@@ -46,7 +46,7 @@ function clock()
     function evaluateGhosts()
     {
         //Evaluate Ghost 2 (minutes)
-        if (minutes * 6 === seconds * 6)
+        if (minutes === seconds)
         {
             if (window.d2 === false)
             {
@@ -54,17 +54,9 @@ function clock()
                 dispatchBlinkingGhost(2);
             }
         }
-
+        
         //Evaluate Ghost 1 (hour)
-        if (hour < 12 && (hour * 30 === seconds * 6))
-        {
-            if (window.d1 === false)
-            {
-                window.d1 = true;
-                dispatchBlinkingGhost(1)
-            }
-        }
-        else if ((hour > 11) && ((hour * 30 - 360) === seconds * 6))
+        if ((hour * 5) === seconds)
         {
             if (window.d1 === false)
             {
@@ -142,7 +134,7 @@ function clock()
     {
         date = new Date();
         minutes = date.getMinutes();
-        hour = date.getHours();
+        hour = date.getHours() % 12;
         seconds = date.getSeconds();
         milliseconds = date.getMilliseconds();
     }
@@ -150,7 +142,7 @@ function clock()
     function draw()
     {
         ClockStyleKit.clearCanvas('mainCanvas');
-        ClockStyleKit.drawPCanvas('mainCanvas', minutes * (-6), seconds * (-6) - milliseconds * (0.006), hour * (-30),
+        ClockStyleKit.drawPCanvas('mainCanvas', minutes * (-6), seconds * (-6) - milliseconds * (0.006), hour * (-30) - minutes * (0.5),
             pacmanstate[0], pacmanstate[1], pacmanstate[2], pacmanstate[3],
             ghost1Visible, ghost2Visible, ghost1DefeatedVisible, ghost2DefeatedVisible,
             ClockStyleKit.makeRect(0, 0, container.width(), container.height()), "aspectfit");
