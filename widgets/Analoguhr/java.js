@@ -54,7 +54,7 @@ function clock()
                 dispatchBlinkingGhost(2);
             }
         }
-        
+
         //Evaluate Ghost 1 (hour)
         if ((hour * 5) === seconds)
         {

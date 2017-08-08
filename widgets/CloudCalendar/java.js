@@ -161,7 +161,7 @@
 					let hours   = String(events[i].date.getHours()).length <= 1 ? '0' + String(events[i].date.getHours()) : String(events[i].date.getHours());
 					let minutes = String(events[i].date.getMinutes()).length <= 1 ? '0' + String(events[i].date.getMinutes()) : String(events[i].date.getMinutes());
 					let day     = String(events[i].date.getDate()).length <= 1 ? '0' + String(events[i].date.getDate()) : String(events[i].date.getDate());
-					let month   = String(events[i].date.getMonth()).length <= 1 ? '0' + String(events[i].date.getMonth() + 1) : String(events[i].date.getMonth());
+					let month   = String(events[i].date.getMonth() + 1).length <= 1 ? '0' + String(events[i].date.getMonth() + 1) : String(events[i].date.getMonth() + 1);
 
 					imgArr[i].attr('src', events[i].label === "fsi" ? 'widgets/CloudCalendar/fsi.png' : 'widgets/CloudCalendar/logoKlausur.png');
 					timeArr[i].text(hours + ":" + minutes + " Uhr");
