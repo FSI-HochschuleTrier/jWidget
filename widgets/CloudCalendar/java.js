@@ -5,8 +5,7 @@
  * Date: 23.06.17
  * Copyright: Philipp Dippel
  */
-!function Events()
-{
+!function Events() {
 	let eventsFSI       = [];
 	let eventsKlausuren = [];
 	let events          = [];
@@ -20,8 +19,7 @@
 	let overlay      = null;
 	let indicator    = false;
 
-	$(document).ready(() =>
-	{
+	$(document).ready(() => {
 		clearInterval(window.calendarTimer);
 		getEvents();
 		window.calendarTimer = setInterval(getEvents, 300000)
@@ -31,41 +29,47 @@
 	function getEvents()
 	{
 		$.when(
-			$.get('widgets/CloudCalendar/getCalDavKlausur.php', (resolve) =>
-			{
+			$.get('widgets/CloudCalendar/getCalDavKlausur.php', (resolve) => {
 
 				let data = JSON.parse(resolve);
-				data.forEach((entry, index) =>
-				{
+				data.forEach((entry, index) => {
 					data[index] = JSON.parse(entry);
 				});
 
 				eventsKlausuren = [];
 
-				$.each(data, (index, value) =>
-				{
+				$.each(data, (index, value) => {
 
-					let location   = value.LOCATION ? value.LOCATION : '';
-					let title      = value.SUMMARY ? value.SUMMARY : '';
-					let descrition = value.DESCRIPTION ? value.DESCRIPTION : '';
-					let eventStart = value['DTSTART;TZID=Europe/Berlin'] ? value['DTSTART;TZID=Europe/Berlin'] : null;
-					let date       = null;
+					let location    = value.LOCATION ? value.LOCATION : '';
+					let title       = value.SUMMARY ? value.SUMMARY : '';
+					let description = value.DESCRIPTION ? value.DESCRIPTION : '';
+					let eventStart  = value['DTSTART;TZID=Europe/Berlin'] ? value['DTSTART;TZID=Europe/Berlin'] : value['DTSTART;VALUE=DATE'];
+					let date        = null;
 
-					if (eventStart !== null)
+					if (eventStart.length > 8)
 					{
 						let year    = parseInt(eventStart.substring(0, 4));
 						let month   = parseInt(eventStart.substring(4, 6)) - 1;
 						let day     = parseInt(eventStart.substring(6, 8));
 						let hour    = parseInt(eventStart.substring(9, 11));
 						let minutes = parseInt(eventStart.substring(11, 13));
-
 						date = new Date(year, month, day, hour, minutes);
 					}
+					else
+					{
+						let year    = parseInt(eventStart.substring(0, 4));
+						let month   = parseInt(eventStart.substring(4, 6)) - 1;
+						let day     = parseInt(eventStart.substring(6, 8));
+						let hour    = 0;
+						let minutes = 0;
+						date = new Date(year, month, day, hour, minutes);
+					}
+
 
 					eventsKlausuren.push({
 						'title':       title,
 						'location':    location,
-						'description': descrition,
+						'description': description,
 						'date':        date,
 						'label':       "klausur"
 					});
@@ -73,41 +77,47 @@
 				});
 			}),
 
-			$.get('widgets/CloudCalendar/getCalDavFSI.php', (resolve) =>
-			{
+			$.get('widgets/CloudCalendar/getCalDavFSI.php', (resolve) => {
 
 				let data = JSON.parse(resolve);
-				data.forEach((entry, index) =>
-				{
+				data.forEach((entry, index) => {
 					data[index] = JSON.parse(entry);
 				});
 
 				eventsFSI = [];
 
-				$.each(data, (index, value) =>
-				{
+				$.each(data, (index, value) => {
 
-					let location   = value.LOCATION ? value.LOCATION : '';
-					let title      = value.SUMMARY ? value.SUMMARY : '';
-					let descrition = value.DESCRIPTION ? value.DESCRIPTION : '';
-					let eventStart = value['DTSTART;TZID=Europe/Berlin'] ? value['DTSTART;TZID=Europe/Berlin'] : null;
-					let date       = null;
+					let location    = value.LOCATION ? value.LOCATION : '';
+					let title       = value.SUMMARY ? value.SUMMARY : '';
+					let description = value.DESCRIPTION ? value.DESCRIPTION : '';
+					let eventStart  = value['DTSTART;TZID=Europe/Berlin'] ? value['DTSTART;TZID=Europe/Berlin'] : value['DTSTART;VALUE=DATE'];
+					let date        = null;
 
-					if (eventStart !== null)
+					if (eventStart.length > 8)
 					{
 						let year    = parseInt(eventStart.substring(0, 4));
 						let month   = parseInt(eventStart.substring(4, 6)) - 1;
 						let day     = parseInt(eventStart.substring(6, 8));
 						let hour    = parseInt(eventStart.substring(9, 11));
 						let minutes = parseInt(eventStart.substring(11, 13));
-
+						date = new Date(year, month, day, hour, minutes);
+					}
+					else
+					{
+						let year    = parseInt(eventStart.substring(0, 4));
+						let month   = parseInt(eventStart.substring(4, 6)) - 1;
+						let day     = parseInt(eventStart.substring(6, 8));
+						let hour    = 0;
+						let minutes = 0;
 						date = new Date(year, month, day, hour, minutes);
 					}
 
-					eventsKlausuren.push({
+
+					eventsFSI.push({
 						'title':       title,
 						'location':    location,
-						'description': descrition,
+						'description': description,
 						'date':        date,
 						'label':       "fsi"
 					});
@@ -115,12 +125,10 @@
 				});
 
 			})
-		).then(() =>
-		{
+		).then(() => {
 			events = eventsKlausuren.concat(eventsFSI);
 
-			events.sort((o1, o2) =>
-			{
+			events.sort((o1, o2) => {
 				return o1.date - o2.date;
 			});
 
@@ -153,7 +161,7 @@
 					let hours   = String(events[i].date.getHours()).length <= 1 ? '0' + String(events[i].date.getHours()) : String(events[i].date.getHours());
 					let minutes = String(events[i].date.getMinutes()).length <= 1 ? '0' + String(events[i].date.getMinutes()) : String(events[i].date.getMinutes());
 					let day     = String(events[i].date.getDate()).length <= 1 ? '0' + String(events[i].date.getDate()) : String(events[i].date.getDate());
-					let month   = String(events[i].date.getMonth()).length <= 1 ? '0' + String(events[i].date.getMonth() + 1) : String(events[i].date.getMonth());
+					let month   = String(events[i].date.getMonth() + 1).length <= 1 ? '0' + String(events[i].date.getMonth() + 1) : String(events[i].date.getMonth() + 1);
 
 					imgArr[i].attr('src', events[i].label === "fsi" ? 'widgets/CloudCalendar/fsi.png' : 'widgets/CloudCalendar/logoKlausur.png');
 					timeArr[i].text(hours + ":" + minutes + " Uhr");
