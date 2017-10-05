@@ -26,23 +26,25 @@
       width: 100%; }
     #MPD #main #MPDMusicText {
       order: 2;
-      font-size: 14px;
+      font-size: 12px;
       text-align: center;
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 30px;
-      background: #FFFFFF;
+      background: #005196;
       width: 100%;
-      height: 30px; }
+      height: 20px;
+      color: white; }
     #MPD #main #AlbumText {
       order: 3;
-      font-size: 14px;
+      font-size: 12px;
       text-align: center;
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 30px;
-      background: #FFFFFF;
+      color: white;
+      background: #005196;
       width: 100%;
-      height: 30px; }
+      height: 23px; }
 
 /*# sourceMappingURL=style.css.map */
