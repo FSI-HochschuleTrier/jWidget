@@ -5,14 +5,12 @@
   margin: 0;
   padding: 0;
 
-
   #main
   {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-
 
     #containerAlbum
     {
@@ -36,9 +34,6 @@
 
     }
 
-
-
-
       #can
       {
         order: 1;
@@ -46,35 +41,33 @@
         width: 100%;
       }
 
-
-
-
       #MPDMusicText
       {
         order: 2;
-        font-size: 14px;
+        font-size: 12px;
         text-align: center;
         overflow: hidden;
         text-overflow: ellipsis;
         line-height: 30px;
-        background: #FFFFFF;
+        background: rgb(0, 81, 150);
         width: 100%;
-        height: 30px;
+        height: 20px;
+        color: white;
       }
 
       #AlbumText
       {
         order: 3;
-        font-size: 14px;
+        font-size: 12px;
         text-align: center;
         overflow: hidden;
         text-overflow: ellipsis;
         line-height: 30px;
-        background: #FFFFFF;
+        color: white;
+        background: rgb(0, 81, 150);
         width: 100%;
-        height: 30px;
+        height: 23px;
       }
-
 
   }
 
