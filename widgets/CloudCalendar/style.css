@@ -24,7 +24,7 @@
   .EventContainer img {
     grid-column: 1;
     height: auto;
-    width: 60%;
+    width: 30px;
     padding: 0; }
   .EventContainer .timeContainer {
     grid-column: 2;
