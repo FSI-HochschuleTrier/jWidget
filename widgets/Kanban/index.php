@@ -12,13 +12,13 @@ $headers = [
     'PRIVATE-TOKEN: ' .APIKEY,
 ];
 
-curl_setopt($curl, CURLOPT_URL, "https://gitlab.fsi.hochschule-trier.de/api/v3/projects/399/issues?state=opened&per_page=50");
+curl_setopt($curl, CURLOPT_URL, "https://gitlab.fsi.hochschule-trier.de/api/v4/projects/399/issues?state=opened&per_page=50");
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 $outputOpen = curl_exec($curl);
 
-curl_setopt($curl, CURLOPT_URL, "https://gitlab.fsi.hochschule-trier.de/api/v3/projects/399/issues?state=closed&per_page=10");
+curl_setopt($curl, CURLOPT_URL, "https://gitlab.fsi.hochschule-trier.de/api/v4/projects/399/issues?state=closed&per_page=10");
 
 $outputClosed = curl_exec($curl);
 curl_close($curl);

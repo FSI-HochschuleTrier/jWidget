@@ -18,6 +18,8 @@ function evaluateData(dataOpen, dataClosed)
 	let listClosed = $('#listClosed');
 
 	//Add all open issues to DOM
+
+	if(openIssuesArr !== null && openIssuesArr !== undefined && Array.isArray(openIssuesArr))
 	openIssuesArr.forEach(function (item)
 	{
 		let title = item.title;
@@ -78,6 +80,7 @@ function evaluateData(dataOpen, dataClosed)
 	});
 
 	//Add all closed issues to DOM
+    if(closedIssuesArr !== null && closedIssuesArr !== undefined && Array.isArray(closedIssuesArr) )
 	closedIssuesArr.forEach(function (item)
 	{
 		let title = item.title;
